@@ -98,10 +98,10 @@
  * 
  * These settings are required and not set by PlatformIO.
  */
-#define KNUTWURST_PRHEAT_NOZZLE_PLA 200
-#define KNUTWURST_PRHEAT_BED_PLA     60
+#define KNUTWURST_PRHEAT_NOZZLE_PLA 185
+#define KNUTWURST_PRHEAT_BED_PLA     50
 #define KNUTWURST_PRHEAT_NOZZLE_ABS 240
-#define KNUTWURST_PRHEAT_BED_ABS     90
+#define KNUTWURST_PRHEAT_BED_ABS     95
 
 
 //===========================================================================
@@ -137,7 +137,7 @@
 // @section info
 
 // Author info of this build printed to the host during boot and M115
-#define STRING_CONFIG_H_AUTHOR "(knutwurst)" // Who made the changes.
+#define STRING_CONFIG_H_AUTHOR "(Markus Thur)" // Who made the changes.
 //#define CUSTOM_VERSION_FILE Version.h // Path from the root directory (no quotes)
 
 /**
@@ -516,15 +516,15 @@
 
 // Below this temperature the heater will be switched off
 // because it probably indicates a broken thermistor wire.
-#define HEATER_0_MINTEMP   1
-#define HEATER_1_MINTEMP   1
-#define HEATER_2_MINTEMP   1
-#define HEATER_3_MINTEMP   1
-#define HEATER_4_MINTEMP   1
-#define HEATER_5_MINTEMP   1
-#define HEATER_6_MINTEMP   1
-#define HEATER_7_MINTEMP   1
-#define BED_MINTEMP        1
+#define HEATER_0_MINTEMP   5
+#define HEATER_1_MINTEMP   5
+#define HEATER_2_MINTEMP   5
+#define HEATER_3_MINTEMP   5
+#define HEATER_4_MINTEMP   5
+#define HEATER_5_MINTEMP   5
+#define HEATER_6_MINTEMP   5
+#define HEATER_7_MINTEMP   5
+#define BED_MINTEMP        5
 
 // Above this temperature the heater will be switched off.
 // This can protect components from overheating, but NOT from shorts and failures.
@@ -557,15 +557,15 @@
   //#define SLOW_PWM_HEATERS      // PWM with very low frequency (roughly 0.125Hz=8s) and minimum state time of approximately 1s useful for heaters driven by a relay
   //#define PID_PARAMS_PER_HOTEND // Uses separate PID parameters for each extruder (useful for mismatched extruders)
                                   // Set/get with gcode: M301 E[extruder number, 0-2]
-  #define PID_FUNCTIONAL_RANGE 10 // If the temperature difference between the target temperature and the actual temperature
+  #define PID_FUNCTIONAL_RANGE 20 // If the temperature difference between the target temperature and the actual temperature
                                   // is more than PID_FUNCTIONAL_RANGE then the PID will be shut off and the heater will be set to min/max.
 
   // If you are using a pre-configured hotend then you can use one of the value sets by uncommenting it
 
   #if ANY(KNUTWURST_MEGA, KNUTWURST_MEGA_S, KNUTWURST_MEGA_P)
-    #define  DEFAULT_Kp 15.94
-    #define  DEFAULT_Ki 1.17
-    #define  DEFAULT_Kd 54.19
+    #define  DEFAULT_Kp 10.2
+    #define  DEFAULT_Ki 0.31
+    #define  DEFAULT_Kd 82.74
   #endif
 
   #if ENABLED(KNUTWURST_MEGA_X)
@@ -864,7 +864,7 @@
 #endif
 
 #if ENABLED(KNUTWURST_MEGA_S)
-    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 393 }
+    #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 426.66 }
 #endif
 
 #if ENABLED(KNUTWURST_MEGA_X)
@@ -895,7 +895,7 @@
 #endif
 
 #if ENABLED(KNUTWURST_MEGA_S)
-    #define DEFAULT_MAX_FEEDRATE          { 500, 500, 6, 30 } // same feedrate for BMG
+    #define DEFAULT_MAX_FEEDRATE          { 120, 120, 9, 48 } // same feedrate for BMG
 #endif
 
 #if ENABLED(KNUTWURST_MEGA_X)
@@ -1432,9 +1432,9 @@
 #if ENABLED(KNUTWURST_TMC)
     #if ANY(KNUTWURST_MEGA, KNUTWURST_MEGA_S, KNUTWURST_MEGA_X)
         // Invert the stepper direction. Change (or reverse the motor connector) if an axis goes the wrong way.
-        #define INVERT_X_DIR false // set to true for stock drivers or TMC2208 with reversed connectors
-        #define INVERT_Y_DIR true // set to false for stock drivers or TMC2208 with reversed connectors
-        #define INVERT_Z_DIR true // set to false for stock drivers or TMC2208 with reversed connectors
+        #define INVERT_X_DIR true // set to true for stock drivers or TMC2208 with reversed connectors
+        #define INVERT_Y_DIR false // set to false for stock drivers or TMC2208 with reversed connectors
+        #define INVERT_Z_DIR false // set to false for stock drivers or TMC2208 with reversed connectors
 
         // @section extruder
 
@@ -1442,9 +1442,9 @@
         #if ENABLED(KNUTWURST_BMG)
             #define INVERT_E0_DIR false // set to false for stock drivers or TMC2208 with reversed connectors
         #else
-            #define INVERT_E0_DIR true // set to false for stock drivers or TMC2208 with reversed connectors
+            #define INVERT_E0_DIR false // set to false for stock drivers or TMC2208 with reversed connectors
         #endif
-        #define INVERT_E1_DIR true // set to false for stock drivers or TMC2208 with reversed connectors
+        #define INVERT_E1_DIR false // set to false for stock drivers or TMC2208 with reversed connectors
         #define INVERT_E2_DIR false
         #define INVERT_E3_DIR false
         #define INVERT_E4_DIR false
@@ -1542,9 +1542,9 @@
     #define X_MIN_POS 0
     #define Y_MIN_POS 0
     #define Z_MIN_POS 0
-    #define X_BED_SIZE 225
-    #define Y_BED_SIZE 220
-    #define Z_MAX_POS 210
+    #define X_BED_SIZE 220
+    #define Y_BED_SIZE 210
+    #define Z_MAX_POS 205
     #define X_MAX_POS X_BED_SIZE
     #define Y_MAX_POS Y_BED_SIZE
 #endif
@@ -1787,7 +1787,7 @@
       #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
   #else
       #define MESH_INSET 10          // Set Mesh bounds as an inset region of the bed
-      #define GRID_MAX_POINTS_X 5    // Don't use more than 7 points per axis, implementation limited.
+      #define GRID_MAX_POINTS_X 3    // Don't use more than 7 points per axis, implementation limited.
       #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
   #endif
 
@@ -1977,13 +1977,13 @@
 
 // Preheat Constants
 #define PREHEAT_1_LABEL       "PLA"
-#define PREHEAT_1_TEMP_HOTEND 180
-#define PREHEAT_1_TEMP_BED     70
+#define PREHEAT_1_TEMP_HOTEND 185
+#define PREHEAT_1_TEMP_BED     60
 #define PREHEAT_1_FAN_SPEED     0 // Value from 0 to 255
 
 #define PREHEAT_2_LABEL       "ABS"
 #define PREHEAT_2_TEMP_HOTEND 240
-#define PREHEAT_2_TEMP_BED    110
+#define PREHEAT_2_TEMP_BED     95
 #define PREHEAT_2_FAN_SPEED     0 // Value from 0 to 255
 
 /**
