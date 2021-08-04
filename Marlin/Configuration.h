@@ -207,7 +207,7 @@
  * on the upper left of the PCB silkscreen.
  */
 #ifndef MOTHERBOARD
-  //#define MOTHERBOARD BOARD_TRIGORILLA_14  // Is normally set by PlatformIO
+  #define MOTHERBOARD BOARD_TRIGORILLA_14  // Is normally set by PlatformIO
 #endif
 
 // Name displayed in the LCD "Ready" message and Info menu
