@@ -563,9 +563,9 @@
   // If you are using a pre-configured hotend then you can use one of the value sets by uncommenting it
 
   #if ANY(KNUTWURST_MEGA, KNUTWURST_MEGA_S, KNUTWURST_MEGA_P)
-    #define  DEFAULT_Kp 10.2
-    #define  DEFAULT_Ki 0.31
-    #define  DEFAULT_Kd 82.74
+    #define  DEFAULT_Kp 14.16
+    #define  DEFAULT_Ki 0.88
+    #define  DEFAULT_Kd 57.14
   #endif
 
   #if ENABLED(KNUTWURST_MEGA_X)
@@ -616,9 +616,9 @@
   //#define PID_BED_DEBUG // Sends debug data to the serial port.
 
   #if ANY(KNUTWURST_MEGA, KNUTWURST_MEGA_S, KNUTWURST_MEGA_P)
-    #define DEFAULT_bedKp 251.78
-    #define DEFAULT_bedKi 49.57
-    #define DEFAULT_bedKd 319.73
+    #define DEFAULT_bedKp 75.22
+    #define DEFAULT_bedKi 13.91
+    #define DEFAULT_bedKd 271.15
   #endif
 
   #if ENABLED(KNUTWURST_MEGA_X)
