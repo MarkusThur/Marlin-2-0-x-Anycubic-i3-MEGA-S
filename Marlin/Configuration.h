@@ -895,7 +895,7 @@
 #endif
 
 #if ENABLED(KNUTWURST_MEGA_S)
-    #define DEFAULT_MAX_FEEDRATE          { 120, 120, 9, 48 } // same feedrate for BMG
+    #define DEFAULT_MAX_FEEDRATE          { 125, 125, 30, 48 } // same feedrate for BMG
 #endif
 
 #if ENABLED(KNUTWURST_MEGA_X)
@@ -920,9 +920,9 @@
 #endif
 
 
-//#define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
+#define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
-  #define MAX_FEEDRATE_EDIT_VALUES    { 600, 600, 10, 50 } // ...or, set your own edit limits
+  #define MAX_FEEDRATE_EDIT_VALUES    { 250, 250, 40, 50 } // ...or, set your own edit limits
 #endif
 
 /**
@@ -932,7 +932,7 @@
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
 #if ANY(KNUTWURST_MEGA, KNUTWURST_MEGA_S, KNUTWURST_MEGA_P)
-    #define DEFAULT_MAX_ACCELERATION      { 3000, 2000,  60, 10000 }
+    #define DEFAULT_MAX_ACCELERATION      { 4500, 4500, 1500, 10000 }
 #endif
 
 #if ENABLED(KNUTWURST_MEGA_X)
@@ -945,9 +945,9 @@
 #endif
 
 
-//#define LIMITED_MAX_ACCEL_EDITING     // Limit edit via M201 or LCD to DEFAULT_MAX_ACCELERATION * 2
+#define LIMITED_MAX_ACCEL_EDITING     // Limit edit via M201 or LCD to DEFAULT_MAX_ACCELERATION * 2
 #if ENABLED(LIMITED_MAX_ACCEL_EDITING)
-  #define MAX_ACCEL_EDIT_VALUES       { 6000, 6000, 200, 20000 } // ...or, set your own edit limits
+  #define MAX_ACCEL_EDIT_VALUES       { 5000, 5000, 1800, 15000 } // ...or, set your own edit limits
 #endif
 
 /**
@@ -971,9 +971,9 @@
 #endif
 
 #if ENABLED(KNUTWURST_MEGA_S)
-    #define DEFAULT_ACCELERATION          1500    // X, Y, Z and E acceleration for printing moves
+    #define DEFAULT_ACCELERATION          3200    // X, Y, Z and E acceleration for printing moves
     #define DEFAULT_RETRACT_ACCELERATION  1500    // E acceleration for retracts
-    #define DEFAULT_TRAVEL_ACCELERATION   3000    // X, Y, Z acceleration for travel (non printing) moves
+    #define DEFAULT_TRAVEL_ACCELERATION   4000    // X, Y, Z acceleration for travel (non printing) moves
 #endif
 
 #if ENABLED(KNUTWURST_MEGA_X)
@@ -1256,7 +1256,7 @@
 #endif
 
 // X and Y axis travel speed (mm/m) between probes
-#define XY_PROBE_SPEED 8000
+#define XY_PROBE_SPEED 7500
 
 // Feedrate (mm/m) for the first approach when double-probing (MULTIPLE_PROBING == 2)
 #define Z_PROBE_SPEED_FAST 600//HOMING_FEEDRATE_Z
@@ -1501,14 +1501,14 @@
 
 // @section homing
 
-//#define NO_MOTION_BEFORE_HOMING // Inhibit movement until all axes have been homed
+#define NO_MOTION_BEFORE_HOMING // Inhibit movement until all axes have been homed
 
 //#define UNKNOWN_Z_NO_RAISE      // Don't raise Z (lower the bed) if Z is "unknown." For beds that fall when Z is powered off.
 
-//#define Z_HOMING_HEIGHT  4      // (mm) Minimal Z height before homing (G28) for Z clearance above the bed, clamps, ...
+#define Z_HOMING_HEIGHT  4      // (mm) Minimal Z height before homing (G28) for Z clearance above the bed, clamps, ...
                                   // Be sure to have this much clearance over your Z_MAX_POS to prevent grinding.
 
-//#define Z_AFTER_HOMING  10      // (mm) Height to move to after homing Z
+#define Z_AFTER_HOMING   0.2    // (mm) Height to move to after homing Z
 
 // Direction of endstops when homing; 1=MAX, -1=MIN
 // :[-1,1]
@@ -1853,8 +1853,8 @@
 
 #if ANY(KNUTWURST_MEGA, KNUTWURST_MEGA_S, KNUTWURST_MEGA_P)
     // Homing speeds (mm/m)
-    #define HOMING_FEEDRATE_XY (50*60)
-    #define HOMING_FEEDRATE_Z  (4*60)
+    #define HOMING_FEEDRATE_XY (62.5*60)
+    #define HOMING_FEEDRATE_Z  (15*60)
 #endif
 
 #if ENABLED(KNUTWURST_MEGA_X)
@@ -2258,7 +2258,7 @@
 //
 // Short 2KHz beep when endstops are hit
 //
-//#define ENDSTOP_BEEP
+#define ENDSTOP_BEEP
 
 //
 // The duration and frequency for the UI feedback sound.
