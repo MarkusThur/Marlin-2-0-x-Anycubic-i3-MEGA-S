@@ -1009,9 +1009,9 @@
 
 #if ENABLED(CLASSIC_JERK)
   #if ANY(KNUTWURST_MEGA, KNUTWURST_MEGA_S, KNUTWURST_MEGA_P)
-      #define DEFAULT_XJERK  8.0
-      #define DEFAULT_YJERK  8.0
-      #define DEFAULT_ZJERK  0.4
+      #define DEFAULT_XJERK  12.0
+      #define DEFAULT_YJERK  12.0
+      #define DEFAULT_ZJERK  0.5
   #endif
 
   #if ENABLED(KNUTWURST_MEGA_X)
@@ -1035,7 +1035,7 @@
 #endif
 
 #if ANY(KNUTWURST_MEGA, KNUTWURST_MEGA_S, KNUTWURST_MEGA_P)
-    #define DEFAULT_EJERK    5.0  // May be used by Linear Advance
+    #define DEFAULT_EJERK    7.5  // May be used by Linear Advance
 #endif
 
 #if ENABLED(KNUTWURST_MEGA_X)
@@ -1787,7 +1787,7 @@
       #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
   #else
       #define MESH_INSET 10          // Set Mesh bounds as an inset region of the bed
-      #define GRID_MAX_POINTS_X 3    // Don't use more than 7 points per axis, implementation limited.
+      #define GRID_MAX_POINTS_X 5    // Don't use more than 7 points per axis, implementation limited.
       #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
   #endif
 
