@@ -152,7 +152,7 @@
  */
 
 // Show the Marlin bootscreen on startup. ** ENABLE FOR PRODUCTION **
-#define SHOW_BOOTSCREEN
+//#define SHOW_BOOTSCREEN
 
 // Show the bitmap in Marlin/_Bootscreen.h on startup.
 //#define SHOW_CUSTOM_BOOTSCREEN
@@ -895,7 +895,7 @@
 #endif
 
 #if ENABLED(KNUTWURST_MEGA_S)
-    #define DEFAULT_MAX_FEEDRATE          { 125, 125, 30, 48 } // same feedrate for BMG
+    #define DEFAULT_MAX_FEEDRATE          { 125, 125, 30, 45 } // same feedrate for BMG
 #endif
 
 #if ENABLED(KNUTWURST_MEGA_X)
@@ -1055,7 +1055,10 @@
  */
 #if DISABLED(CLASSIC_JERK)
     #if ANY(KNUTWURST_MEGA, KNUTWURST_MEGA_S, KNUTWURST_MEGA_P)
-        #define JUNCTION_DEVIATION_MM 0.013 // (mm) Distance from real junction edge
+        #define JUNCTION_DEVIATION_MM 0.008 //calced with tested settings from here for classic Jerk (0.4*(8.0*8.0)/3200)
+        //#define JUNCTION_DEVIATION_MM 0.017 //calced from Knutwurst standard settings
+        //#define JUNCTION_DEVIATION_MM 0.014 //calced from Knutwurst standrad settings and the 1800 mm/s^2 Cura uses for printing        
+        //#define JUNCTION_DEVIATION_MM 0.013 // (mm) Distance from real junction edge
     #endif
 
     #if ENABLED(KNUTWURST_MEGA_X)
