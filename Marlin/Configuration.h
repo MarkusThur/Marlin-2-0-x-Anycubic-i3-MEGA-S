@@ -1009,9 +1009,9 @@
 
 #if ENABLED(CLASSIC_JERK)
   #if ANY(KNUTWURST_MEGA, KNUTWURST_MEGA_S, KNUTWURST_MEGA_P)
-      #define DEFAULT_XJERK  12.0
-      #define DEFAULT_YJERK  12.0
-      #define DEFAULT_ZJERK  0.5
+      #define DEFAULT_XJERK  16
+      #define DEFAULT_YJERK  16
+      #define DEFAULT_ZJERK  0.8
   #endif
 
   #if ENABLED(KNUTWURST_MEGA_X)
@@ -1030,12 +1030,12 @@
 
   //#define LIMITED_JERK_EDITING        // Limit edit via M205 or LCD to DEFAULT_aJERK * 2
   #if ENABLED(LIMITED_JERK_EDITING)
-    #define MAX_JERK_EDIT_VALUES { 20, 20, 0.6, 10 } // ...or, set your own edit limits
+    #define MAX_JERK_EDIT_VALUES { 20, 20, 1.0, 12.5 } // ...or, set your own edit limits
   #endif
 #endif
 
 #if ANY(KNUTWURST_MEGA, KNUTWURST_MEGA_S, KNUTWURST_MEGA_P)
-    #define DEFAULT_EJERK    7.5  // May be used by Linear Advance
+    #define DEFAULT_EJERK    10.0  // May be used by Linear Advance
 #endif
 
 #if ENABLED(KNUTWURST_MEGA_X)
@@ -1055,7 +1055,7 @@
  */
 #if DISABLED(CLASSIC_JERK)
     #if ANY(KNUTWURST_MEGA, KNUTWURST_MEGA_S, KNUTWURST_MEGA_P)
-        #define JUNCTION_DEVIATION_MM 0.008 //calced with tested settings from here for classic Jerk (0.4*(8.0*8.0)/3200)
+        #define JUNCTION_DEVIATION_MM 0.032 //calced with tested settings from here for classic Jerk (0.4*(16.0*16.0)/3200)
         //#define JUNCTION_DEVIATION_MM 0.017 //calced from Knutwurst standard settings
         //#define JUNCTION_DEVIATION_MM 0.014 //calced from Knutwurst standrad settings and the 1800 mm/s^2 Cura uses for printing        
         //#define JUNCTION_DEVIATION_MM 0.013 // (mm) Distance from real junction edge
